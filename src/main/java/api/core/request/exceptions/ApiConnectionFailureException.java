@@ -1,4 +1,4 @@
-package api.request.exceptions;
+package api.core.request.exceptions;
 
 public class ApiConnectionFailureException extends Throwable {
 

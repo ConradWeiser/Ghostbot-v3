@@ -1,4 +1,4 @@
-package api.parameters;
+package api.core.parameters;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

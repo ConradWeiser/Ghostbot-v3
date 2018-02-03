@@ -1,8 +1,8 @@
-package api;
+package api.core;
 
-import api.parameters.HttpHeaderParameter;
-import api.parameters.UrlParameter;
-import api.request.RequestMethod;
+import api.core.parameters.HttpHeaderParameter;
+import api.core.parameters.UrlParameter;
+import api.core.request.RequestMethod;
 
 import java.lang.reflect.Type;
 import java.net.MalformedURLException;

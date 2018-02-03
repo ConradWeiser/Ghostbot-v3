@@ -1,8 +1,8 @@
-package api.request;
+package api.core.request;
 
-import api.ApiMethod;
-import api.parameters.HttpHeaderParameter;
-import api.request.exceptions.ApiConnectionFailureException;
+import api.core.ApiMethod;
+import api.core.parameters.HttpHeaderParameter;
+import api.core.request.exceptions.ApiConnectionFailureException;
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;

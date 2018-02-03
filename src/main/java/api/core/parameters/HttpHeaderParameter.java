@@ -1,4 +1,4 @@
-package api.parameters;
+package api.core.parameters;
 
 public class HttpHeaderParameter {
 
