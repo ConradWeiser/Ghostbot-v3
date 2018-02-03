@@ -5,9 +5,9 @@ import api.core.request.RequestMethod;
 import api.league.LeagueApiManager;
 import api.league.data.SummonerInformationElement;
 
-public class GetSummonerInformation extends LeagueApiManager {
+public class GetSummonerInformationById extends LeagueApiManager {
 
-    public GetSummonerInformation(long userId) {
+    public GetSummonerInformationById(long userId) {
 
         this.setUrlBase("https://na1.api.riotgames.com/lol/summoner/v3/summoners/" + userId);
 

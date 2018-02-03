@@ -4,7 +4,8 @@ import api.core.ApiMethod;
 import api.core.request.RequestManager;
 import api.core.request.exceptions.ApiConnectionFailureException;
 import api.league.data.SummonerInformationElement;
-import api.league.methods.GetSummonerInformation;
+import api.league.methods.GetSummonerInformationById;
+import api.league.methods.GetSummonerInformationByName;
 import api.league.throwables.SummonerDoesNotExistException;
 
 public class LeagueApi {
@@ -41,12 +42,31 @@ public class LeagueApi {
      * @throws ApiConnectionFailureException When the API doesn't get a proper response from the endpoint
      * @throws api.league.throwables.SummonerDoesNotExistException When the API returns that there is no summoner with that ID
      */
-    public SummonerInformationElement getSummonerInformation(long summonerId) throws ApiConnectionFailureException, SummonerDoesNotExistException {
+    public SummonerInformationElement getSummonerInformationById(long summonerId) throws ApiConnectionFailureException, SummonerDoesNotExistException {
 
-        ApiMethod method = new GetSummonerInformation(summonerId);
+        ApiMethod method = new GetSummonerInformationById(summonerId);
         SummonerInformationElement element = requestManager.makeApiRequest(method);
 
         //TODO: Do a less sketchy way of checking if the summoner exists. Currently, we're just seeing if the name is empty. Maybe do something with response codes?
+        if(element.getName().isEmpty())
+            throw new SummonerDoesNotExistException();
+
+        //Otherwise, return the element
+        return element;
+    }
+
+    /**
+     * Method returning a {@link SummonerInformationElement} given a specified summoner name.
+     * @throws ApiConnectionFailureException When the API doesn't get a proper response from the endpoint
+     * @throws api.league.throwables.SummonerDoesNotExistException When the API returns that there is no summoner with that ID
+     */
+    public SummonerInformationElement getSummonerInformationByName(String summonerName) throws SummonerDoesNotExistException, ApiConnectionFailureException {
+
+        ApiMethod method = new GetSummonerInformationByName(summonerName);
+
+        SummonerInformationElement element = requestManager.makeApiRequest(method);
+
+        //TODO: Less sketchy way of checking if a summoner exists. Same as above method
         if(element.getName().isEmpty())
             throw new SummonerDoesNotExistException();
 
