@@ -1,6 +1,7 @@
 package sql;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import core.BotConfigurationManager;
@@ -20,6 +21,30 @@ public class MysqlCore {
 
        createSqlInstanceConnection();
 
+    }
+
+    /**
+     * Method which checks a ResultSet to see if it's empty or not.
+     */
+    protected boolean isResultSetEmpty(ResultSet set) {
+
+        //Check the ResultSet. If it's empty, log an error to the logger and return false
+        try {
+
+            if(!set.next()) {
+
+                //TODO: Log an error to the Discord Logging System
+                return false;
+            }
+
+            //Otherwise, there are indeed results. Return true.
+            return true;
+
+        } catch (SQLException e) {
+
+            //This is redundant and needs fixed. But log an error and return false here too.
+            return false;
+        }
     }
 
     /**

@@ -1,6 +1,7 @@
 package commands;
 
 import commands.basic.BasicModule;
+import commands.league.LeagueModule;
 import commands.user.UserModule;
 
 import java.sql.Connection;
@@ -21,6 +22,7 @@ public class CommandManager {
         //Insert the modules here
         this.modules.add(new BasicModule());
         this.modules.add(new UserModule());
+        this.modules.add(new LeagueModule());
 
     }
 
