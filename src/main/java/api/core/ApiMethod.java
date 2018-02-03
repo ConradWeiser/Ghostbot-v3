@@ -49,11 +49,7 @@ public abstract class ApiMethod {
      */
     private Type returnType = null;
 
-    /**
-     * A flag for the method specifying if it requires an AuthToken for the user in order
-     * to be ran.
-     */
-    private boolean requireToken = false;
+
 
 
     /**
@@ -72,12 +68,7 @@ public abstract class ApiMethod {
     }
 
 
-    /**
-     * Method which returns if the User Token is required for this method or not
-     */
-    public boolean doesRequireToken() {
-        return this.requireToken;
-    }
+
 
     /**
      * Method which returns the request body
@@ -150,12 +141,7 @@ public abstract class ApiMethod {
         return builder.toString();
     }
 
-    /**
-     * Method to set the request to require an AuthToken
-     */
-    protected void requireToken() {
-        this.requireToken = true;
-    }
+
 
     /**
      * Method to set the request method
