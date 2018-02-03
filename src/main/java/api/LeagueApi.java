@@ -67,7 +67,7 @@ public class LeagueApi {
         SummonerInformationElement element = requestManager.makeApiRequest(method);
 
         //TODO: Less sketchy way of checking if a summoner exists. Same as above method
-        if(element.getName().isEmpty())
+        if(element.getName() == null)
             throw new SummonerDoesNotExistException();
 
         //Otherwise, return the element
