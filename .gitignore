@@ -15,6 +15,9 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 
+#SQL Cache Files
+*.tsv
+
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
@@ -62,3 +65,4 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+

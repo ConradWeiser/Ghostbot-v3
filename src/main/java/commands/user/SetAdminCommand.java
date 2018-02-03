@@ -48,7 +48,7 @@ public class SetAdminCommand extends Command {
         }
 
         //Alert the channel what just happened
-        event.getChannel().sendMessage("Successively promoted " + promotedUserCount + " users to administrators.").queue();
+        event.getChannel().sendMessage("Successively promoted " + promotedUserCount + " user(s) to administrator status.").queue();
 
     }
 }
