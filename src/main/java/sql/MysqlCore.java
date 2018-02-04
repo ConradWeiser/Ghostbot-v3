@@ -26,7 +26,7 @@ public class MysqlCore {
     /**
      * Method which checks a ResultSet to see if it's empty or not.
      */
-    protected boolean isResultSetEmpty(ResultSet set) {
+    public boolean isResultSetEmpty(ResultSet set) {
 
         //Check the ResultSet. If it's empty, log an error to the logger and return false
         try {

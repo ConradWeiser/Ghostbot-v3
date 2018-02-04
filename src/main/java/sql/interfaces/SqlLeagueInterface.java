@@ -14,16 +14,32 @@ public class SqlLeagueInterface extends SqlGenericInterface {
         super();
     }
 
-    public void registerLeagueUser(String summonerName, long summonerId, String discordUserId) {
+    public boolean leagueStatChannelExistsForGivenGuild(String guildId) {
+
+        //Build the SQL query
+        String query = "SELECT * FROM league_of_legends_stat_channels WHERE guild_id = " + guildId;
+        ResultSet result = this.executeSelectStatement(query);
+
+        //If the set is empty, one does not exist. Otherwise, one does.
+        if(this.isResultSetEmpty(result))
+            return false;
+
+        else
+            return true;
+    }
+
+    public void registerLeagueUser(String summonerName, long summonerId, String discordUserId, String guildId) {
 
         //Build the SQL query
         StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("INSERT INTO league_of_legends_users (summoner_name, summoner_id, affiliated_discord_id) VALUES (\"");
+        queryBuilder.append("INSERT INTO league_of_legends_users (summoner_name, summoner_id, affiliated_discord_id, home_discord_guild_id) VALUES (\"");
         queryBuilder.append(summonerName);
         queryBuilder.append("\",");
         queryBuilder.append(summonerId);
         queryBuilder.append(", \"");
         queryBuilder.append(discordUserId);
+        queryBuilder.append("\",\"");
+        queryBuilder.append(guildId);
         queryBuilder.append("\")");
 
         //TODO: Remove debug line
