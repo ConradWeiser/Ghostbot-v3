@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class SqlGenericInterface extends MysqlCore {
 
-    protected SqlGenericInterface() {
+    public SqlGenericInterface() {
 
         //Init the SqlCore parent class
         super();

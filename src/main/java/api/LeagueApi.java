@@ -3,9 +3,14 @@ package api;
 import api.core.ApiMethod;
 import api.core.request.RequestManager;
 import api.core.request.exceptions.ApiConnectionFailureException;
+import api.league.data.MatchDto;
+import api.league.data.MatchlistDto;
 import api.league.data.SummonerInformationElement;
+import api.league.methods.GetMatchById;
 import api.league.methods.GetSummonerInformationById;
 import api.league.methods.GetSummonerInformationByName;
+import api.league.methods.GetSummonerMatchHistory;
+import api.league.throwables.MatchDoesNotExistException;
 import api.league.throwables.SummonerDoesNotExistException;
 
 public class LeagueApi {
@@ -71,6 +76,25 @@ public class LeagueApi {
             throw new SummonerDoesNotExistException();
 
         //Otherwise, return the element
+        return element;
+    }
+
+    public MatchlistDto getSummonerMatchHistoryById(long summonerId) {
+
+        //TODO: All of this
+        return null;
+    }
+
+    public MatchDto getMatchInformationByMatchId(String matchId) throws ApiConnectionFailureException, MatchDoesNotExistException {
+
+        ApiMethod method = new GetMatchById(matchId);
+
+        MatchDto element = requestManager.makeApiRequest(method);
+
+        //TODO: Do a better way of doing this
+        if(element.getGameMode() == null)
+            throw new MatchDoesNotExistException();
+
         return element;
     }
 
