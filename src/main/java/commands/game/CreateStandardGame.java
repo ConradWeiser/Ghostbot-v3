@@ -25,7 +25,7 @@ public class CreateStandardGame extends Command {
 		}
 
 		else {
-			GameModule.runningGames.add(new ScavengerGameElement(args.get(0)));
+			GameModule.runningGames.add(new ScavengerGameElement(args.get(0), args.get(1)));
 			event.getTextChannel().sendMessage("Event has been created.").queue();
 			return;
 		}

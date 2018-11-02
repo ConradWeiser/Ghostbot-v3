@@ -56,6 +56,7 @@ public class BotCore {
     private void attachCallbacks() {
 
         this.jda.addEventListener(new CommandListener());
+        this.jda.addEventListener(new UserPhraseListener());
 
     }
 

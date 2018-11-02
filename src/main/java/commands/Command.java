@@ -40,8 +40,8 @@ public abstract class Command {
         // get the content past the initial command
         String contents = message.getContentRaw().substring(size + 1);
 
-        // split the string on any comma characters
-        List<String> list = Arrays.asList(contents.split(","));
+        // split the string on any semicolon characters
+        List<String> list = Arrays.asList(contents.split(";"));
 
         // check each element for a leading whitespace character
         for (int i = 0; i < list.size(); i ++) {

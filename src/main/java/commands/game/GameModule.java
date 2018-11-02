@@ -23,6 +23,7 @@ public class GameModule extends CommandModule {
 		this.addCommand(new SetGameChannel(this));
 		this.addCommand(new ShowNextHint(this));
 		this.addCommand(new ViewGameHintsAdmin(this));
+		this.addCommand(new DeleteGame(this));
 	}
 
 	@Override

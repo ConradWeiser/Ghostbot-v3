@@ -20,10 +20,13 @@ public class ScavengerGameElement {
 	 */
 	String gameName;
 
-	public ScavengerGameElement(String gameName) {
+	String endPhrase;
+
+	public ScavengerGameElement(String gameName, String endPhrase) {
 		this.hintList = new PriorityQueue<>();
 		this.completedHints = new PriorityQueue<>();
 		this.gameName = gameName;
+		this.endPhrase = endPhrase;
 	}
 
 	public void addHint(String hint) {
@@ -54,5 +57,9 @@ public class ScavengerGameElement {
 
 	public String getGameName() {
 		return gameName;
+	}
+
+	public String getEndPhrase() {
+		return endPhrase;
 	}
 }
