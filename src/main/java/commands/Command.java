@@ -35,14 +35,13 @@ public abstract class Command {
      * @param message  the message that called the command
      * @return a list of the comma-split arguments for the command
      */
-    protected List<String> getArguments(Message message) {
+    protected List<String> getArguments(Message message, int size) {
 
         // get the content past the initial command
-        String contents = message.getContentRaw().substring(
-                this.getPath().length() + 1);
+        String contents = message.getContentRaw().substring(size + 1);
 
         // split the string on any comma characters
-        List<String> list = Arrays.asList(contents.split(";"));
+        List<String> list = Arrays.asList(contents.split(","));
 
         // check each element for a leading whitespace character
         for (int i = 0; i < list.size(); i ++) {

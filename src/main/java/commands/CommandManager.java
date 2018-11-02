@@ -1,6 +1,7 @@
 package commands;
 
 import commands.basic.BasicModule;
+import commands.game.GameModule;
 import commands.user.UserModule;
 
 import java.sql.Connection;
@@ -19,6 +20,7 @@ public class CommandManager {
         this.modules = new ArrayList<>();
 
         //Insert the modules here
+        this.modules.add(new GameModule());
         this.modules.add(new BasicModule());
         this.modules.add(new UserModule());
 

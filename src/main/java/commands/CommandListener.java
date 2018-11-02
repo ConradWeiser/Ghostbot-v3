@@ -22,7 +22,7 @@ public class CommandListener extends ListenerAdapter {
         }
 
         this.manager = CommandManager.getInstance();
-        contents = contents.substring(1,  contents.length());
+        contents = contents.substring(1);
 
         try {
 
